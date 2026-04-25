@@ -1,5 +1,13 @@
 ---@meta
 
+---@class OxCreateGroupProperties
+---@field name string
+---@field label string
+---@field grades {label: string, accountRole?: OxAccountRole}[]
+---@field type string?
+---@field colour number?
+---@field hasAccount boolean?
+
 ---@class OxServer
 Ox = {}
 
@@ -10,7 +18,7 @@ Ox = {}
 function Ox.CreateAccount(ownerId, label) end
 
 ---**`server`**
----@param data OxGroup
+---@param data OxCreateGroupProperties
 function Ox.CreateGroup(data) end
 
 ---**`server`**
@@ -30,8 +38,9 @@ function Ox.DeleteAccountInvoice(invoiceId) end
 function Ox.DeleteGroup(groupName) end
 
 ---**`server`**
+---@param pattern? string
 ---@return string
-function Ox.GenerateVehiclePlate() end
+function Ox.GenerateVehiclePlate(pattern) end
 
 ---**`server`**
 ---@param modelName string
@@ -64,11 +73,6 @@ function Ox.GetGroupAccount(groupName) end
 function Ox.GetGroupsByType(groupType) end
 
 ---**`server`**
----@param name string
----@return OxGroup
-function Ox.GetGroup(name) end
-
----**`server`**
 ---@param playerId number
 ---@return OxPlayerServer
 function Ox.GetPlayer(playerId) end
@@ -84,14 +88,29 @@ function Ox.GetPlayerFromFilter(filter) end
 function Ox.GetPlayerFromUserId(userId) end
 
 ---**`server`**
+---@param charId number
+---@return OxPlayerServer
+function Ox.GetPlayerFromCharId(charId) end
+
+---**`server`**
 ---@param filter? table<string, any>
 ---@return OxPlayerServer[]
 function Ox.GetPlayers(filter) end
 
 ---**`server`**
+---@param handle string|number `vin` or `entityId`
+---@return OxVehicleServer
+function Ox.GetVehicle(handle) end
+
+---**`server`**
 ---@param entityId number
 ---@return OxVehicleServer
-function Ox.GetVehicle(entityId) end
+function Ox.GetVehicleFromEntity(entityId) end
+
+---**`server`**
+---@param filter? table<string, any>
+---@return OxVehicleServer
+function Ox.GetVehicleFromFilter(filter) end
 
 ---**`server`**
 ---@param netId number
@@ -102,6 +121,11 @@ function Ox.GetVehicleFromNetId(netId) end
 ---@param vin string
 ---@return OxVehicleServer
 function Ox.GetVehicleFromVin(vin) end
+
+---**`server`**
+---@param filter? table<string, any>
+---@return OxVehicleServer[]
+function Ox.GetVehicles(filter) end
 
 ---**`server`**
 ---@param groupName string
@@ -123,6 +147,16 @@ function Ox.SaveAllVehicles() end
 function Ox.SetGroupPermission(groupName, grade, permission, value) end
 
 ---**`server`**
+---@param groupName string
+---@return number[]
+function Ox.GetGroupActivePlayers(groupName) end
+
+---**`server`**
+---@param groupType string
+---@return number[]
+function Ox.GetGroupActivePlayersByType(groupType) end
+
+---**`server`**
 ---@param dbId number
 ---@param coords vector3
 ---@param heading? number
@@ -137,3 +171,15 @@ function Ox.GetLicense(name) end
 ---**`server`**
 ---@return OxLicense[]
 function Ox.GetLicenses() end
+
+---**`server`**
+---@param userId number
+---@param reason string?
+---@param hours string?
+---@return boolean
+function Ox.BanUser(userId, reason, hours) end
+
+---**`server`**
+---@param userId number
+---@return boolean
+function Ox.UnbanUser(userId) end
