@@ -3,25 +3,9 @@
   "name": "Overextended",
   "words": ["exports%.ox", "Ox%.", "MySQL%."],
   "settings": {
-    "runtime": {
-      "version": "",
-      "nonstandardSymbol": [
-        "/**/",
-        "`",
-        "+=",
-        "-=",
-        "*=",
-        "/=",
-        "<<=",
-        ">>=",
-        "&=",
-        "|=",
-        "^="
-      ],
-      "special": {
-        "lib.load": "require"
-      },
-      "pathStrict": true
-    }
+    "Lua.runtime.special": {
+      "lib.load": "require"
+    },
+    "Lua.runtime.pathStrict": true
   }
 }
