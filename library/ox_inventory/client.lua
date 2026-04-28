@@ -147,6 +147,15 @@ function exports.ox_inventory:displayMetadata(metadata) end
 function exports.ox_inventory:displayMetadata(metadata, value) end
 
 ---**`client`**
+---@param func? fun(servId): string
+function exports.ox_inventory:setGetPlayerNameMethod(func) end
+
+---**`client`**
+---@param itemName string
+---@param properties ItemContainerProperties
+function exports.ox_inventory:setContainerProperties(itemName, properties) end
+
+---**`client`**
 ---@return table<string, OxClientItem> items
 function exports.ox_inventory:Items() end
 
