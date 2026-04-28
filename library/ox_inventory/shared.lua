@@ -97,3 +97,9 @@ exports.ox_inventory = {}
 ---@field component? true
 ---@field throwable? boolean
 ---@field model? string
+
+---@class ItemContainerProperties
+---@field slots number
+---@field maxWeight number
+---@field whitelist? table<string, true> | string[]
+---@field blacklist? table<string, true> | string[]
