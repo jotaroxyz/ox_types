@@ -17,6 +17,7 @@
 ---@field owner? string|number|boolean
 ---@field groups? table<string, number>
 ---@field coords? vector3
+---@field instance? string|number
 ---@field datastore? boolean
 ---@field changed? boolean
 ---@field weapon? number
@@ -39,6 +40,7 @@
 ---@field owner? string|number|boolean
 ---@field groups? table<string, number>
 ---@field coords? vector3
+---@field instance? string|number
 ---@field items? { [number]: string, [number]: number, [number]: table | string }[]
 
 ---**`server`**
