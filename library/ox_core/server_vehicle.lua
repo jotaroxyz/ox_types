@@ -29,6 +29,10 @@ function vehicle.get(key) end
 function vehicle.getCoords() end
 
 ---**`server`**
+---@return number
+function vehicle.getRotation() end
+
+---**`server`**
 ---@return VehicleProperties
 function vehicle.getProperties() end
 
@@ -43,6 +47,7 @@ function vehicle.getStored() end
 ---**`server`**
 ---@param coords? vector3
 ---@param rotation? vector3
+---@return number
 function vehicle.respawn(coords, rotation) end
 
 ---**`server`**
@@ -73,5 +78,4 @@ function vehicle.setProperties(properties, apply) end
 
 ---**`server`**
 ---@param value? string
----@param despawn? boolean
-function vehicle.setStored(value, despawn) end
+function vehicle.setStored(value) end
