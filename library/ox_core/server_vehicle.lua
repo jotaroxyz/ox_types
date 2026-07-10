@@ -79,3 +79,8 @@ function vehicle.setProperties(properties, apply) end
 ---**`server`**
 ---@param value? string
 function vehicle.setStored(value) end
+
+---**`server`**
+---@param coords vector3
+---@param heading number
+function vehicle.setCoords(coords, heading) end
