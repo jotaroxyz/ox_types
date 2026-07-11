@@ -82,5 +82,5 @@ function vehicle.setStored(value) end
 
 ---**`server`**
 ---@param coords vector3
----@param heading number
+---@param heading? number
 function vehicle.setCoords(coords, heading) end
